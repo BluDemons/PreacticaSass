@@ -1,5 +1,5 @@
 @mixin text-body {
-    font-family: 'Lato', sans-serif;
+    font-family: 'lato', sans-serif;
     font-size: 17px;
     color: $pure_white;
     font-weight: $light;
@@ -17,6 +17,40 @@
 @mixin headers {
 	font-weight: $light;
 	font-size: 70%;
-	text-align: 'center';
+	text-align: center;
 	margin-bottom: 10px;
+	width: 50%;
+	@include center-horizontal();
+}
+@mixin center-vertical {
+	position: relative; //un centrado vertical contiene un top, un left, posicicion y una transicion
+	top: 50%;
+	left: 50%;	
+	transform: translate(-50%,-50%);//crea un efecto en la trancicion
+}
+@mixin center-horizontal {
+	margin-left: auto; //en base al recuadro que baya el mergen e pondra automaticamente
+	margin-right: auto;//funciona cuando los margenes estan en automatico tanto izquierda como derecha
+	display: block;//ocupa todo el bloque de la pagina
+}
+@mixin placeholder ($color,$font-weight){
+	::-webkit-input-placeholder {
+		color: $color;
+		font-weight: $font-weight;
+	}
+
+	:-moz-placeholder { /* Firefox 18- */
+		color: $color;
+		font-weight: $font-weight;
+	}
+
+	::-moz-placeholder {  /* Firefox 19+ */
+		color: $color;
+		font-weight: $font-weight;
+	}
+
+	:-ms-input-placeholder {  
+		color: $color; 
+		font-weight: $font-weight;
+	}
 }
